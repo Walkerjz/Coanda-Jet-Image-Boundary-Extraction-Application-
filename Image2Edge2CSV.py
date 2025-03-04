@@ -4,7 +4,7 @@ import numpy as np
 
 '''
 This program takes Scherien Images of Coanda Jets and extracts the jet boundary using canny edge detection.
-To use this program change the file name and run the program. Adjust the sliders untill the edge detection looks good 
+To use this program change the file name and run the program. Adjust the sliders until the edge detection looks good 
 then press 'q' to exit and save the points as a csv with the same name as the image file.
 
 Adjustable functions:
@@ -18,7 +18,7 @@ Adjustable functions:
 '''
 
 #FilePath is the directory you are pulling from
-FilePath = 'Data/1800um/'
+FilePath = 'Data/'
 #file Name is the image we want to extract the boundary from
 FileName = 'rcphoto1810um21psi_2019.jpg'
 #TarePath is a background image.
@@ -26,7 +26,7 @@ FileName = 'rcphoto1810um21psi_2019.jpg'
 TareName = 'rcphoto1810um5psi_2019.jpg'
 # The mask file was created using ImageJ. It is used here to get rid of random flow phenomena
 #floating around in the fluid flow
-Mask = 'Data/1800um/UniversalMask2.jpg'
+Mask = 'UniversalMask2.jpg'
 
 #Read images and convert them to a gray scale format so the matrix is 2D not 3D
 File = cv2.cvtColor(cv2.imread(FilePath+FileName), cv2.COLOR_BGR2GRAY)
@@ -96,10 +96,13 @@ while True:
     if cv2.waitKey(1) == ord('q'):
         X,Y = extract_edges(edges)
         break
-
+#print the X and Y coordinates
 print('the X coordinates ' + str(X))
 print('the Y coordinates ' + str(Y))
+
+#save the array to a csv
 a=np.array([X,Y])
 np.savetxt(FileName,a, delimiter=",")
 
+#close the window
 cv2.destroyAllWindows()
