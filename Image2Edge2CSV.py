@@ -20,17 +20,17 @@ Adjustable functions:
 #FilePath is the directory you are pulling from
 FilePath = 'Data/'
 #file Name is the image we want to extract the boundary from
-FileName = 'rcphoto1810um21psi_2019.jpg'
+FileName = 'rcphoto1810um21psi_2019'
 #TarePath is a background image.
 # In the absence of a background image use the lowest pressure in a slot width set you are testing
-TareName = 'rcphoto1810um5psi_2019.jpg'
+TareName = 'rcphoto1810um5psi_2019'
 # The mask file was created using ImageJ. It is used here to get rid of random flow phenomena
 #floating around in the fluid flow
 Mask = 'UniversalMask2.jpg'
 
 #Read images and convert them to a gray scale format so the matrix is 2D not 3D
-File = cv2.cvtColor(cv2.imread(FilePath+FileName), cv2.COLOR_BGR2GRAY)
-Tare = cv2.cvtColor(cv2.imread(FilePath+TareName), cv2.COLOR_BGR2GRAY)
+File = cv2.cvtColor(cv2.imread(FilePath+FileName+'.jpg'), cv2.COLOR_BGR2GRAY)
+Tare = cv2.cvtColor(cv2.imread(FilePath+TareName+'.jpg'), cv2.COLOR_BGR2GRAY)
 Mask = cv2.cvtColor(cv2.imread(Mask), cv2.COLOR_BGR2GRAY)
 
 #Subtract the background from the image to boost contrast
@@ -102,7 +102,7 @@ print('the Y coordinates ' + str(Y))
 
 #save the array to a csv
 a=np.array([X,Y])
-np.savetxt(FileName,a, delimiter=",")
+np.savetxt(FileName+'.csv',a, delimiter=",")
 
 #close the window
 cv2.destroyAllWindows()
