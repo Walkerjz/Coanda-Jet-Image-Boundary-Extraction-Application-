@@ -23,7 +23,7 @@ FilePath = 'Data/'
 FileName = 'rcphoto1810um21psi_2019'
 #TarePath is a background image.
 # In the absence of a background image use the lowest pressure in a slot width set you are testing
-TareName = 'rcphoto1810um5psi_2019'
+TareName = 'rcphoto1810um10psi_2019'
 # The mask file was created using ImageJ. It is used here to get rid of random flow phenomena
 #floating around in the fluid flow
 Mask = 'UniversalMask2.jpg'
