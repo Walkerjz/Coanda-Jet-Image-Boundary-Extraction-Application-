@@ -57,7 +57,7 @@ def extract_edges(edges):
     edgeX = []
     edgeY = []
     #start from y = 260 and iterate through rows until row 316. These values are adjustable to avoid unwanted edge artifacts
-    i = 260
+    i =100
     bottom = 316
     while i<bottom:
         # start from the right of the image and iterate across
