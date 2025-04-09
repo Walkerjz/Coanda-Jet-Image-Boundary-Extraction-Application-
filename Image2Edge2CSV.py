@@ -3,7 +3,7 @@ import time
 import numpy as np
 
 '''
-This program takes Scherien Images of Coanda Jets and extracts the jet boundary using canny edge detection.
+This program takes Schlieren Images of Coanda Jets and extracts the jet boundary using canny edge detection.
 To use this program change the file name and run the program. Adjust the sliders until the edge detection looks good 
 then press 'q' to exit and save the points as a csv with the same name as the image file.
 
